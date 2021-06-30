@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Tech Talk: Tree Equity Score</title>
+
+		<meta name="description" content="The recipe of how we created Tree Equity Score">
+		<meta name="author" content="Rohit Musti">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="https://treeequityscore.org">
+						<img src="./assets/TES-logo.svg" alt="tree equity score logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>The Tree Equity Score</h3>
+					<p>
+						<small>Presented by <a href="http://rohitmusti.github.io/">Rohit Musti</a> </a></p></small>
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h3>Not everyone has access to trees</h3>
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="640" height="400" data-src="https://links.imagerelay.com/cdn/3910/ql/c4bda6328a8b4214acde393e0cbc1bee/Detroit-Google-Map-Images_AF_Winter20--1-.jpg" alt="Down arrow">
+					</section>
+					<section>
+						<h3>Areas with few trees often turn into heat islands</h3>
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="640" height="400" data-src="https://links.imagerelay.com/cdn/3910/ql/9a9fcfed36e84b1487ba952b73cf7e04/shutterstock_144222931.jpg" alt="Down arrow">
+					</section>
+                    <section>
+                        <h3>There are a lot of other benefits too!</h3>
+                            <img class="r-frame" style="background: rgba(255,255,255,0.1);" width="640" height="400" data-src="https://links.imagerelay.com/cdn/3910/ql/04a19ec547de42d084b5165c8b183998/infographic-tree-equity-urban-forestry-city-trees-american--1-.png" alt="Down arrow">
+					</section>
+					<section>
+						<h3>Trees are not distributed equally</h3>
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="640" height="450" data-src="./assets/diffpocvstc.png" alt="Down arrow">
+					</section>
+				</section>
+
+				<section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h2>Priority Index</h2>
+					<p>We started with these raw equity indicators</p>
+					<div class="r-hstack justify-center">
+						<div data-id="box1" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">Age</div></div>
+						<div data-id="box3" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">People of Color</div></div>
+						<div data-id="box4" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">People in Poverty</div></div>
+						<div data-id="box6" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">Employment</div></div>
+						<div data-id="box7" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">Population Density</div></div>
+						<div data-id="box2" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">Health</div></div>
+						<div data-id="box5" style="background: #999; width: 75px; height: 75px; margin: 10px; border-radius: 5px; font-size: small;"> <div style="padding-top: 25%">Heat Vulnerability</div></div>
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div class="r-hstack justify-center">
+						<div data-id="box1" data-auto-animate-delay="0" style=" background: violet; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">Age</div></div>
+						<div data-id="box3" data-auto-animate-delay="0.2" style="background: violet; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">People of Color</div></div>
+						<div data-id="box4" data-auto-animate-delay="0.3" style="background: violet; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">People in Poverty</div></div>
+						<div data-id="box6" data-auto-animate-delay="0.5" style="background: violet; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">Employment</div></div>
+						<div data-id="box7" data-auto-animate-delay="0.5" style="background: violet; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">Population Density</div></div>
+						<div data-id="box2" data-auto-animate-delay="0.1" style="background: lightblue; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">Health</div></div>
+						<div data-id="box5" data-auto-animate-delay="0.4" style="background: orange; width: 150px; height: 100px; margin: 10px; border-radius: 200px; font-size: small;"> <div style="padding-top: 25%">Heat Vulnerability</div></div>
+					</div>
+					<p style="margin-top: 20px;">Then we normalized them within their municipalities</p>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div class="r-hstack justify-center">
+						<div data-id="box1" data-auto-animate-delay="0" style="margin: 10px; background: violet; width: 150px; height: 100px;  font-size: small;"> <div style="padding-top: 25%">Age</div></div>
+						<div data-id="box3" data-auto-animate-delay="0.2" style="margin: 10px; background: violet; width: 150px; height: 100px; font-size: small;"> <div style="padding-top: 25%">People of Color</div></div>
+						<div data-id="box4" data-auto-animate-delay="0.3" style="margin: 10px; background: violet; width: 150px; height: 100px; font-size: small;"> <div style="padding-top: 25%">People in Poverty</div></div>
+						<div data-id="box6" data-auto-animate-delay="0.5" style="margin: 10px; background: violet; width: 150px; height: 100px; font-size: small;"> <div style="padding-top: 25%">Employment</div></div>
+						<div data-id="box7" data-auto-animate-delay="0.5" style="margin: 10px; background: violet; width: 150px; height: 100px; font-size: small;"> <div style="padding-top: 25%">Population Density</div></div>
+						<div data-id="box2" data-auto-animate-delay="0.1" style="margin: 10px; background: lightblue; width: 150px; height: 100px; font-size: small;"> <div style="padding-top: 25%">Health</div></div>
+						<div data-id="box5" data-auto-animate-delay="0.4" style="margin: 10px; background: orange; width: 150px; height: 100px; font-size: small;"> <div style="padding-top: 25%">Heat Vulnerability</div></div>
+
+					</div>
+					<p style="margin-top: 20px;">Weighted them equally to create a priority index.</p>
+				</section>
+			</section>
+
+
+				<section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h2>Tree canopy Gap</h2>
+					<div class="r-hstack justify-center">
+						<div data-id="box1" style="background: yellow; width: 175px; height: 175px; margin: 10px; border-radius: 5px; font-size: l;"> <div style="padding-top: 25%">Canopy Goal</div></div>
+						<div data-id="box2" style="background: violet; width: 175px; height: 175px; margin: 10px; border-radius: 5px; font-size: l;"> <div style="padding-top: 25%">Canopy Cover</div></div>
+					</div>
+					<p>The difference between your tree canopy goal and your current tree canopy</p>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5>Tree canopy Goal</h5>
+					<div class="r-hstack justify-center">
+						<div data-id="box1" style="background: yellow; width: 175px; height: 175px; margin: 10px; border-radius: 5px; font-size: l; border-radius: 100%;"> <div style="padding-top: 25%">Biome Goal</div></div>
+						<div data-id="box2" style="background: violet; width: 175px; height: 175px; margin: 10px; border-radius: 5px; font-size: l;border-radius: 100%" > <div style="padding-top: 25%">Density</div></div>
+					</div>
+					<p style="margin-top: 20px;">We weighted the biome goal by the population density</p>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5>Tree canopy cover</h5>
+					<div class="r-hstack justify-center">
+						<div data-id="box2" style="background: red; width: 175px; height: 175px; margin: 10px;  font-size: l; color: white;" > <div style="padding-top: 25%"></div>High Res</div>
+						<div data-id="box1" style="background: midnightblue; width: 175px; height: 175px; margin: 10px;  font-size: l;  color: white;"> <div style="padding-top: 25%">Earth Define</div></div>
+					</div>
+				</section>
+			</section>
+
+
+				<section >
+					<p>All of this analysis required roughly </p>
+					<h2 class="r-fit-text">25 datasets!</h2>
+				</section>
+
+				<section data-background-iframe="https://treeequityscore.org/map/" data-background-interactive>
+					<div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+						<h2 style="color: white">Tree Equity Score Explorer</h2>
+						<p>This work culminated in the creation of <a href="https://treeequityscore.org">treeequityscore.org</a>. We built this application to help folks expore our data and advocate for trees!</p>
+					</div>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
